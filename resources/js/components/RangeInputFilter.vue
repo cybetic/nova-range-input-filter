@@ -14,7 +14,8 @@
              :type="filter.options.inputType"
              :placeholder="filter.options.fromPlaceholder"
              v-model="value.from"
-             @change="handleChange"/>
+             @change="handleChange"
+             value="{{ value.from }}"/>
 
       <div class="text-sm mx-2 text-center">{{ filter.options.dividerLabel }}</div>
 
@@ -24,7 +25,8 @@
              :type="filter.options.inputType"
              :placeholder="filter.options.toPlaceholder"
              v-model="value.to"
-             @change="handleChange"/>
+             @change="handleChange"
+             value="{{ value.to }}"/>
 
     </div>
 
@@ -47,12 +49,11 @@ export default {
   },
   methods: {
     handleChange(event) {
-
-      this.$store.commit(`${ this.resourceName }/updateFilterState`, {
+      this.$store.commit(`${this.resourceName}/updateFilterState`, {
         filterClass: this.filterKey,
         value: {
           ...this.value,
-          [ event.target.name ]: event.target.value
+          [event.target.name]: event.target.value
         }
       })
 
@@ -62,10 +63,10 @@ export default {
   },
   computed: {
     filter() {
-      return this.$store.getters[ `${ this.resourceName }/getFilter` ](this.filterKey)
+      return this.$store.getters[`${this.resourceName}/getFilter`](this.filterKey)
     },
     value() {
-      return { ...this.filter.currentValue } || { from: '', to: '' }
+      return {...this.filter.currentValue} || {from: '', to: ''}
     }
   }
 }
