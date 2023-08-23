@@ -14,7 +14,7 @@
              :type="filter.options.inputType"
              :placeholder="filter.options.fromPlaceholder"
              v-model="value.from"
-             @change="handleChange"/>
+             @input="handleChange"/>
 
       <div class="text-sm mx-2 text-center">{{ filter.options.dividerLabel }}</div>
 
@@ -24,7 +24,7 @@
              :type="filter.options.inputType"
              :placeholder="filter.options.toPlaceholder"
              v-model="value.to"
-             @change="handleChange"/>
+             @input="handleChange"/>
 
     </div>
 
@@ -64,8 +64,9 @@ export default {
       return this.$store.getters[`${this.resourceName}/getFilter`](this.filterKey)
     },
     value() {
-      console.log(this.filter.currentValue);
-      return {...this.filter.currentValue} || {from: '', to: ''}
+      console.log(this.filter);
+      const {from = '', to = ''} = this.filter.currentValue;
+      return {from, to};
     }
   }
 }
