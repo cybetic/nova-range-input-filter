@@ -14,7 +14,7 @@
              :type="filter.options.inputType"
              :placeholder="filter.options.fromPlaceholder"
              :value="value.from"
-             @input="event => (value.from = event.target.value) &&  handleChange()"
+             @input="handleChange"
       />
 
       <div class="text-sm mx-2 text-center">{{ filter.options.dividerLabel }}</div>
@@ -25,7 +25,7 @@
              :type="filter.options.inputType"
              :placeholder="filter.options.toPlaceholder"
              :value="value.to"
-             @input="event => (value.to = event.target.value) && handleChange()"
+             @input="handleChange"
       />
 
     </div>
