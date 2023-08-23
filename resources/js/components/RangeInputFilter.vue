@@ -13,8 +13,9 @@
              name="from"
              :type="filter.options.inputType"
              :placeholder="filter.options.fromPlaceholder"
-             v-model="value.from"
-             @input="handleChange"/>
+             :value="value.from"
+             @input="event => (value.from = event.target.value) &&  handleChange()"
+      />
 
       <div class="text-sm mx-2 text-center">{{ filter.options.dividerLabel }}</div>
 
@@ -23,8 +24,9 @@
              name="to"
              :type="filter.options.inputType"
              :placeholder="filter.options.toPlaceholder"
-             :value="333"
-             @input="handleChange"/>
+             :value="value.to"
+             @input="event => (value.to = event.target.value) && handleChange()"
+      />
 
     </div>
 
