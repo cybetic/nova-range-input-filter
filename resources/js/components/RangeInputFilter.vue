@@ -8,7 +8,7 @@
 
     <div class="flex p-2 flex-no-wrap items-center">
 
-      <input class="w-full block form-control form-select form-control-sm form-select-bordered"
+      <input class="block form-control form-select form-control-sm form-select-bordered"
              :class="{ 'w-full': filter.options.fullWidth }"
              name="from"
              :type="filter.options.inputType"
@@ -18,12 +18,12 @@
 
       <div class="text-sm mx-2 text-center">{{ filter.options.dividerLabel }}</div>
 
-      <input class="w-full block form-control form-select form-control-sm form-select-bordered"
+      <input class="block form-control form-select form-control-sm form-select-bordered"
              :class="{ 'w-full': filter.options.fullWidth }"
              name="to"
              :type="filter.options.inputType"
              :placeholder="filter.options.toPlaceholder"
-             v-model="value.to"
+             :value="333"
              @input="handleChange"/>
 
     </div>
@@ -63,7 +63,6 @@ export default {
     },
     value() {
       const {from = '', to = ''} = this.filter.currentValue;
-      console.log('Range input', this.filter, this.filter.currentValue, from, to);
       return {from, to};
     }
   }
