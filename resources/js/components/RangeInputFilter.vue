@@ -54,9 +54,7 @@ export default {
           [event.target.name]: event.target.value
         }
       })
-
       this.$emit('change')
-
     }
   },
   computed: {
