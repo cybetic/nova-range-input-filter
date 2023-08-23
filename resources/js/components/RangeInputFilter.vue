@@ -62,8 +62,8 @@ export default {
       return this.$store.getters[`${this.resourceName}/getFilter`](this.filterKey)
     },
     value() {
-      console.log('Range input', this.filter, this.filter.currentValue);
-      const {from = '', to = ''} = this.filter.value.currentValue;
+      const {from = '', to = ''} = this.filter.currentValue;
+      console.log('Range input', this.filter, this.filter.currentValue, from, to);
       return {from, to};
     }
   }
